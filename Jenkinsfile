@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage("Build") {
-            when { branch "main" }
+            when { branch "master" }
             steps { 
                echo "I am a master branch"
             }
