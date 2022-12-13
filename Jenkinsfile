@@ -8,7 +8,7 @@ pipeline {
             steps {
                     checkout([$class: 'GitSCM',
                         branches: [
-                            [name: '${GitHub Branch}']
+                            [name: ${GitHub Branch}]
                         ],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [[$class: 'LocalBranch', localBranch: "**"]],
