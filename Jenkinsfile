@@ -1,14 +1,14 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'GitHub Branch', choices:['main','1-branch'], description: 'to refresh the list, go to configure, disable "this build has parameters", launch build (without parameters)to reload the list and stop it, then launch it again (with parameters)')
+        choice(name: 'GitHub_Branch', choices:['main','1-branch'], description: 'to refresh the list, go to configure, disable "this build has parameters", launch build (without parameters)to reload the list and stop it, then launch it again (with parameters)')
     }
     stages {
        stage("Checkout") {
             steps {
                     checkout([$class: 'GitSCM',
                         branches: [
-                            [name: ${GitHub Branch}]
+                            [name: ${GitHub_Branch}]
                         ],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [[$class: 'LocalBranch', localBranch: "**"]],
