@@ -14,9 +14,6 @@ pipeline {
                 sh "echo SUCCESS on ${BranchName}"
             }
         }
-    }
-    
-    stages {
         stage("Checkout") {
             steps {
                     checkout([$class: 'GitSCM',
