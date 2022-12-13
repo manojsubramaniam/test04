@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    
-    agent any
-
     parameters {
         choice(
             name: 'BranchName',
