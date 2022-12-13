@@ -1,13 +1,10 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'GitHub Branch', choices:['main','1-branch'], description: 'to refresh the list, go to configure, disable "this build has parameters", launch build (without parameters)to reload the list and stop it, then launch it again (with parameters)')
+    }
     stages {
-        stage("Build") {
-            when { branch "master" }
-            steps { 
-               echo "I am a master branch"
-            }
-        }
-        stage("Checkout") {
+       stage("Checkout") {
             steps {
                     checkout([$class: 'GitSCM',
                         branches: [
